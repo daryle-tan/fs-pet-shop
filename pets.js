@@ -63,7 +63,12 @@ switch (subcommand) {
         fs.readFile("./pets.json", "utf-8", (error, str) => {
             const data = JSON.parse(str);
             if (data[index]) {
-                delete data[index];
+                
+                fs.writeFile("./pets.json", JSON.stringify(data), (error, str) => {
+                    data.splice(index, 1);
+
+                    console.log(data[index])
+                })
             } else {
                 console.error('Usage: node pets.js destroy INDEX')
                 process.exit(1);
