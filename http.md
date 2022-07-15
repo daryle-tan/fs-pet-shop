@@ -24,13 +24,14 @@ $ touch httpServer.js
 
 Your task is to build a Node server application that handles the following HTTP requests and sends back the correct HTTP response. Where appropriate, your application must read the correct data from the `pets.json` file and include it in the response body. Additionally, your application must send the appropriate response status code and `Content-Type` header.
 
-| Request Method | Request URL | Response Status | Response Content-Type | Response Body                                                                                              |
-|----------------|-------------|-----------------|-----------------------|------------------------------------------------------------------------------------------------------------|
-| `GET`          | `/pets`     | `200`           | `application/json`    | `[{ "age": 7, "kind": "rainbow", "name": "fido" }, { "age": 5, "kind": "snake", "name": "Buttons" }]` |
-| `GET`          | `/pets/0`   | `200`           | `application/json`    | `{ "age": 7, "kind": "rainbow", "name": "fido" }`                                                     |
-| `GET`          | `/pets/1`   | `200`           | `application/json`    | `{ "age": 5, "kind": "snake", "name": "Buttons" }`                                                         |
-| `GET`          | `/pets/2`   | `404`           | `text/plain`          | `Not Found`                                                                                                |
-| `GET`          | `/pets/-1`  | `404`           | `text/plain`          | `Not Found`                                                                                                |
+- [Node HTTP Server](#node-http-server)
+  - [Getting started](#getting-started)
+  - [Assignment](#assignment)
+  - [Bonus](#bonus)
+  - [Bonus](#bonus-1)
+  - [Bonus](#bonus-2)
+  - [Bonus](#bonus-3)
+  - [Bonus Tests](#bonus-tests)
 
 To test your HTTP server, first install the `nodemon` package globally.
 
