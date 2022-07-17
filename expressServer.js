@@ -1,7 +1,7 @@
 import express from "express";
 import { readPetsFile } from './shared.js';
 import { writeFile } from 'fs/promises';
-import { send } from "process";
+// import { send } from "process";
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +9,6 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get("/pets", (req, res, next) => {
-    console.log(req.url)
     readPetsFile().then(obj => {
         res.send(obj);
     })
@@ -37,7 +36,6 @@ app.post("/pets", (req, res, next) => {
         pets.push(body);
        
         if (newPet.name === "" || newPet.kind === "" || newPet.age !== Number(newPet.age)) {
-            console.log("im here")
             return res.status(400)
                 .set('content-type', 'text/plain')
                 .send("Bad Request")
@@ -65,7 +63,7 @@ app.use((err, req, res, next) => {
     return res.set('content-type', 'text/plain')
               .status(500)
               .send("Internal Server Error")
-  });
+});
 
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
