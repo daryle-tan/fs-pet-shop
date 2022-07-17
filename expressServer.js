@@ -8,8 +8,8 @@ const PORT = 3000;
 
 app.use(express.json());
 
-
 app.get("/pets", (req, res, next) => {
+    console.log(req.url)
     readPetsFile().then(obj => {
         res.send(obj);
     })
@@ -55,18 +55,10 @@ app.post("/pets", (req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    if()
     return res.set('content-type', 'text/plain')
               .status(404)
               .send("Not Found")
 })
-
-app.get("/blah", (req, res, next) => {
-    readPetsFile().then((err, obj) => {
-        if (err) return next(err);
-        console.log(obj);
-    });
-  });
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -79,3 +71,9 @@ app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
 })
 
+// app.get("/blah", (req, res, next) => {
+//     readPetsFile().then((err, obj) => {
+//         if (err) return next(err);
+//         console.log(obj);
+//     });
+//   });
